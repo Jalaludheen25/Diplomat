@@ -1,0 +1,17 @@
+LOGO PLACEHOLDER
+
+Please replace this file with your actual logo files:
+
+1. logo.png or logo.svg
+   - Your company logo for the navigation bar
+   - Recommended: 150-200px width, transparent background
+   
+2. logo-text.png or logo-text.svg (optional)
+   - Company name logo with text
+   - Recommended: 200-300px width, transparent background
+   
+3. favicon.ico
+   - Browser tab icon
+   - Size: 32x32px or 64x64px
+
+After adding your logo files, you can delete this placeholder file.
