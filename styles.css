@@ -131,32 +131,41 @@ button:active {
 @media (max-width: 640px) {
     h1 {
         font-size: 1.5rem;
+        line-height: 1.3;
     }
     
     h2 {
-        font-size: 1.75rem;
+        font-size: 1.5rem;
+        line-height: 1.3;
     }
     
     h3 {
-        font-size: 1.25rem;
+        font-size: 1.125rem;
+        line-height: 1.4;
+    }
+    
+    p {
+        font-size: 0.875rem;
+        line-height: 1.5;
     }
 }
 
 /* Responsive Grid Adjustments */
 @media (max-width: 768px) {
+    /* Force single column on mobile */
     .grid {
         grid-template-columns: 1fr !important;
     }
     
     /* Hero section adjustments */
     section.py-20 {
-        padding-top: 3rem;
-        padding-bottom: 3rem;
+        padding-top: 2rem;
+        padding-bottom: 2rem;
     }
     
     /* Statistics section */
     .text-5xl {
-        font-size: 2.5rem;
+        font-size: 2rem;
     }
     
     /* Blog cards - 1 column on mobile */
@@ -175,9 +184,41 @@ button:active {
         gap: 2rem;
     }
     
-    /* Process section V logo - hide on mobile */
+    /* Process section logo - hide on mobile */
     .absolute.right-0 {
         display: none;
+    }
+    
+    /* Remove excessive padding on cards */
+    .p-10 {
+        padding: 1.5rem !important;
+    }
+    
+    .p-8 {
+        padding: 1.25rem !important;
+    }
+    
+    /* Adjust card spacing */
+    .mb-8, .mb-6, .mb-5 {
+        margin-bottom: 1rem !important;
+    }
+    
+    /* Fix button widths */
+    button, .btn {
+        width: 100%;
+        text-align: center;
+    }
+    
+    /* Ensure images don't overflow */
+    img {
+        max-width: 100%;
+        height: auto;
+    }
+    
+    /* Fix container padding */
+    .container, .max-w-7xl, .max-w-5xl, .max-w-4xl, .max-w-3xl {
+        padding-left: 1rem;
+        padding-right: 1rem;
     }
 }
 
@@ -197,18 +238,54 @@ button:active {
 /* Responsive padding */
 @media (max-width: 640px) {
     .px-4 {
-        padding-left: 1rem;
-        padding-right: 1rem;
+        padding-left: 0.75rem;
+        padding-right: 0.75rem;
     }
     
     .py-20 {
-        padding-top: 2.5rem;
-        padding-bottom: 2.5rem;
+        padding-top: 2rem;
+        padding-bottom: 2rem;
     }
     
     .py-16 {
-        padding-top: 2rem;
-        padding-bottom: 2rem;
+        padding-top: 1.5rem;
+        padding-bottom: 1.5rem;
+    }
+    
+    .py-12 {
+        padding-top: 1.5rem;
+        padding-bottom: 1.5rem;
+    }
+    
+    /* Remove excessive margins */
+    .mb-16, .mb-12 {
+        margin-bottom: 1.5rem !important;
+    }
+    
+    .mb-8 {
+        margin-bottom: 1rem !important;
+    }
+    
+    .mb-6 {
+        margin-bottom: 0.75rem !important;
+    }
+    
+    /* Fix gap spacing */
+    .gap-8, .gap-6 {
+        gap: 1rem !important;
+    }
+    
+    .gap-12 {
+        gap: 1.5rem !important;
+    }
+    
+    /* Ensure no horizontal overflow */
+    body {
+        overflow-x: hidden;
+    }
+    
+    * {
+        max-width: 100%;
     }
 }
 
@@ -267,5 +344,102 @@ img {
     
     .chat-float i {
         font-size: 22px;
+    }
+}
+
+/* Extra small screens - Mobile specific fixes */
+@media (max-width: 480px) {
+    /* Reduce all text sizes slightly */
+    body {
+        font-size: 14px;
+    }
+    
+    /* Hero section */
+    .text-3xl {
+        font-size: 1.5rem !important;
+    }
+    
+    .text-4xl {
+        font-size: 1.75rem !important;
+    }
+    
+    .text-5xl {
+        font-size: 2rem !important;
+    }
+    
+    /* Buttons */
+    .px-10, .px-8, .px-6 {
+        padding-left: 1rem !important;
+        padding-right: 1rem !important;
+    }
+    
+    .py-4, .py-3 {
+        padding-top: 0.75rem !important;
+        padding-bottom: 0.75rem !important;
+    }
+    
+    /* Cards */
+    .rounded-xl {
+        border-radius: 0.75rem;
+    }
+    
+    .shadow-xl, .shadow-lg {
+        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    }
+    
+    /* Navigation */
+    nav {
+        padding: 0.5rem 0;
+    }
+    
+    /* Logo */
+    .h-10, .h-12 {
+        height: 2rem !important;
+    }
+    
+    /* Remove extra spacing */
+    .space-y-3 > * + * {
+        margin-top: 0.5rem !important;
+    }
+    
+    /* Fix list items */
+    li {
+        font-size: 0.875rem;
+    }
+    
+    /* Ensure proper line breaks */
+    br {
+        display: block;
+        content: "";
+        margin-top: 0.5rem;
+    }
+}
+
+/* Prevent horizontal scroll */
+html, body {
+    max-width: 100%;
+    overflow-x: hidden;
+}
+
+/* Fix for any potential overflow */
+.max-w-7xl, .max-w-5xl, .max-w-4xl, .max-w-3xl {
+    max-width: 100%;
+}
+
+@media (min-width: 640px) {
+    .max-w-7xl {
+        max-width: 80rem;
+    }
+    
+    .max-w-5xl {
+        max-width: 64rem;
+    }
+    
+    .max-w-4xl {
+        max-width: 56rem;
+    }
+    
+    .max-w-3xl {
+        max-width: 48rem;
     }
 }
