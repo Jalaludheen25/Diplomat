@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>Cost Calculator Step 3 - Company name</title>
+    <link rel="stylesheet" href="calculator-styles.css">
+</head>
+
+<body>
+
+    <main class="calculator-wrapper">
+        <div class="calculator-container">
+            <div class="logo-section">
+                <h1 class="logo-title">Company name</h1>
+                <p class="logo-subtitle">An Ascendum Company</p>
+            </div>
+
+            <h2 class="page-title">Calculate Your UAE Business Setup Cost</h2>
+
+            <div class="calculator-card">
+                <div class="form-header">
+                    <h3 class="form-title">How many owners/shareholders will your company have?</h3>
+                    <p class="form-description">The number of owners/shareholders your company will have can help in identifying the most
+                        suitable legal structure for your company, as well as the number of residence visas you will
+                        require.</p>
+                </div>
+
+                <div class="number-grid">
+                    <button type="button" class="number-btn" data-value="1">1</button>
+                    <button type="button" class="number-btn" data-value="2">2</button>
+                    <button type="button" class="number-btn" data-value="3">3</button>
+                    <button type="button" class="number-btn" data-value="4">4</button>
+                    <button type="button" class="number-btn" data-value="5">5</button>
+                    <button type="button" class="number-btn" data-value="6">6</button>
+                    <button type="button" class="number-btn" data-value="7">7</button>
+                    <button type="button" class="number-btn" data-value="8">8</button>
+                </div>
+
+                <div class="button-group">
+                    <button type="button" class="btn btn-secondary" onclick="goBack()">Previous</button>
+                    <button type="button" class="btn btn-primary" id="nextBtn" disabled onclick="proceedNext()">Next</button>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="calculator-footer">
+        <div class="footer-content">
+            <p class="footer-text">Al Saqba Office B, 404, Souk Al Bahar, Burj Khalifa District, Dubai, UAE</p>
+        </div>
+    </footer>
+
+    <script>
+        const urlParams = new URLSearchParams(window.location.search);
+        const selectedActivity = urlParams.get('activity');
+        const selectedReason = urlParams.get('reason');
+
+        let selectedOwners = null;
+
+        document.querySelectorAll('.number-btn').forEach(btn => {
+            btn.addEventListener('click', function () {
+                document.querySelectorAll('.number-btn').forEach(b => b.classList.remove('selected'));
+                this.classList.add('selected');
+                selectedOwners = this.getAttribute('data-value');
+                document.getElementById('nextBtn').disabled = false;
+            });
+        });
+
+        function goBack() {
+            window.location.href = 'step2.html?activity=' + encodeURIComponent(selectedActivity);
+        }
+
+        function proceedNext() {
+            if (selectedOwners) {
+                window.location.href = 'step4.html?activity=' + encodeURIComponent(selectedActivity) + '&reason=' + encodeURIComponent(selectedReason) + '&owners=' + selectedOwners;
+            }
+        }
+    </script>
+
+</body>
+
+</html>

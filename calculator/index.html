@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>Cost Calculator - Company name</title>
+    <link rel="stylesheet" href="calculator-styles.css">
+</head>
+
+<body>
+
+    <main class="calculator-wrapper">
+        <div class="calculator-container">
+            <div class="logo-section">
+                <h1 class="logo-title">Company name</h1>
+                <p class="logo-subtitle">An Ascendum Company</p>
+            </div>
+
+            <h2 class="page-title">Calculate Your UAE Business Setup Cost</h2>
+
+            <div class="calculator-card">
+                <div class="form-header">
+                    <h3 class="form-title">Choose your business activity to start your business setup cost estimate</h3>
+                    <p class="form-description">Choose the business activity that you would like to carry out in the UAE. Aside from helping you
+                        identify the location and licence that best suits your company, this will also help you get a
+                        better estimate of the cost of your company setup.</p>
+                </div>
+
+                <form id="calculatorForm">
+                    <select class="form-select" id="businessActivity" required>
+                        <option value="">Select</option>
+                        <option value="consulting">Consulting</option>
+                        <option value="technology">Technology</option>
+                        <option value="food-beverage">Food and Beverage</option>
+                        <option value="retail">Retail</option>
+                        <option value="marketing">Marketing</option>
+                        <option value="ecommerce">E-commerce</option>
+                        <option value="apparel">Apparel</option>
+                        <option value="construction">Construction</option>
+                        <option value="finance">Finance</option>
+                        <option value="electronics">Electronics</option>
+                        <option value="education">Education</option>
+                        <option value="engineering">Engineering</option>
+                        <option value="healthcare">Healthcare</option>
+                        <option value="media">Media</option>
+                        <option value="transportation">Transportation</option>
+                        <option value="hospitality">Hospitality</option>
+                        <option value="shipping">Shipping</option>
+                        <option value="agriculture">Agriculture</option>
+                        <option value="entertainment">Entertainment</option>
+                        <option value="manufacturing">Manufacturing</option>
+                        <option value="recruitment">Recruitment</option>
+                        <option value="chemicals">Chemicals</option>
+                        <option value="sports-management">Sports Management Services</option>
+                        <option value="machinery">Machinery</option>
+                        <option value="communications">Communications</option>
+                        <option value="energy">Energy</option>
+                        <option value="business-accelerator">Business Accelerator</option>
+                        <option value="banking">Banking</option>
+                        <option value="telecommunications">Telecommunications</option>
+                        <option value="utilities">Utilities</option>
+                    </select>
+
+                    <div class="button-group">
+                        <button type="button" class="btn btn-secondary" onclick="goBack()">Previous</button>
+                        <button type="submit" class="btn btn-primary">Next</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </main>
+
+    <footer class="calculator-footer">
+        <div class="footer-content">
+            <p class="footer-text">Al Saqba Office B, 404, Souk Al Bahar, Burj Khalifa District, Dubai, UAE</p>
+        </div>
+    </footer>
+
+    <script>
+        document.getElementById('calculatorForm').addEventListener('submit', function (e) {
+            e.preventDefault();
+            const selectedActivity = document.getElementById('businessActivity').value;
+
+            if (selectedActivity) {
+                window.location.href = 'step2.html?activity=' + encodeURIComponent(selectedActivity);
+            } else {
+                alert('Please select a business activity to continue.');
+            }
+        });
+
+        function goBack() {
+            window.location.href = '../index.html';
+        }
+    </script>
+
+</body>
+
+</html>

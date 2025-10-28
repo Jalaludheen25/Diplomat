@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>Cost Calculator Step 10 - Company name</title>
+  <link rel="stylesheet" href="calculator-styles.css">
+</head>
+
+<body>
+
+  <main class="calculator-wrapper">
+    <div class="calculator-container">
+      <div class="logo-section">
+        <h1 class="logo-title">Company name</h1>
+        <p class="logo-subtitle">An Ascendum Company</p>
+      </div>
+
+      <h2 class="page-title">Calculate Your UAE Business Setup Cost</h2>
+
+      <div class="calculator-card">
+        <div class="form-header">
+          <h3 class="form-title">What's your nationality?</h3>
+        </div>
+
+        <form id="nationalityForm">
+          <select class="form-select" id="nationality" required>
+            <option value="">Select</option>
+            <option value="Afghanistan">Afghanistan</option>
+            <option value="Albania">Albania</option>
+            <option value="Algeria">Algeria</option>
+            <option value="Andorra">Andorra</option>
+            <option value="Angola">Angola</option>
+            <option value="Argentina">Argentina</option>
+            <option value="Australia">Australia</option>
+            <option value="Austria">Austria</option>
+            <option value="Bangladesh">Bangladesh</option>
+            <option value="Belgium">Belgium</option>
+            <option value="Brazil">Brazil</option>
+            <option value="Canada">Canada</option>
+            <option value="China">China</option>
+            <option value="Denmark">Denmark</option>
+            <option value="Egypt">Egypt</option>
+            <option value="Finland">Finland</option>
+            <option value="France">France</option>
+            <option value="Germany">Germany</option>
+            <option value="India">India</option>
+            <option value="Indonesia">Indonesia</option>
+            <option value="Ireland">Ireland</option>
+            <option value="Italy">Italy</option>
+            <option value="Japan">Japan</option>
+            <option value="Malaysia">Malaysia</option>
+            <option value="Mexico">Mexico</option>
+            <option value="Netherlands">Netherlands</option>
+            <option value="New Zealand">New Zealand</option>
+            <option value="Norway">Norway</option>
+            <option value="Pakistan">Pakistan</option>
+            <option value="Philippines">Philippines</option>
+            <option value="Poland">Poland</option>
+            <option value="Portugal">Portugal</option>
+            <option value="Russia">Russia</option>
+            <option value="Saudi Arabia">Saudi Arabia</option>
+            <option value="Singapore">Singapore</option>
+            <option value="South Africa">South Africa</option>
+            <option value="South Korea">South Korea</option>
+            <option value="Spain">Spain</option>
+            <option value="Sweden">Sweden</option>
+            <option value="Switzerland">Switzerland</option>
+            <option value="Thailand">Thailand</option>
+            <option value="Turkey">Turkey</option>
+            <option value="United Arab Emirates">United Arab Emirates</option>
+            <option value="United Kingdom">United Kingdom</option>
+            <option value="United States">United States</option>
+            <option value="Vietnam">Vietnam</option>
+          </select>
+
+          <div class="button-group">
+            <button type="button" class="btn btn-secondary" onclick="goBack()">Previous</button>
+            <button type="submit" class="btn btn-primary">Next</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </main>
+
+  <footer class="calculator-footer">
+    <div class="footer-content">
+      <p class="footer-text">Al Saqba Office B, 404, Souk Al Bahar, Burj Khalifa District, Dubai, UAE</p>
+    </div>
+  </footer>
+
+  <script>
+    const urlParams = new URLSearchParams(window.location.search);
+    const selectedActivity = urlParams.get('activity');
+    const selectedReason = urlParams.get('reason');
+    const selectedOwners = urlParams.get('owners');
+    const selectedVisas = urlParams.get('visas');
+    const selectedOffice = urlParams.get('office');
+    const selectedTime = urlParams.get('time');
+    const selectedJurisdiction = urlParams.get('jurisdiction');
+    const selectedLiving = urlParams.get('living');
+    const selectedDependants = urlParams.get('dependants');
+
+    document.getElementById('nationalityForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const selectedNationality = document.getElementById('nationality').value;
+      
+      if (selectedNationality) {
+        window.location.href = 'step11.html?activity=' + encodeURIComponent(selectedActivity) + 
+                               '&reason=' + encodeURIComponent(selectedReason) + 
+                               '&owners=' + selectedOwners + 
+                               '&visas=' + selectedVisas + 
+                               '&office=' + encodeURIComponent(selectedOffice) + 
+                               '&time=' + encodeURIComponent(selectedTime) + 
+                               '&jurisdiction=' + encodeURIComponent(selectedJurisdiction) + 
+                               '&living=' + selectedLiving + 
+                               '&dependants=' + selectedDependants + 
+                               '&nationality=' + encodeURIComponent(selectedNationality);
+      } else {
+        alert('Please select your nationality to continue.');
+      }
+    });
+
+    function goBack() {
+      window.location.href = 'step9.html?activity=' + encodeURIComponent(selectedActivity) + 
+                             '&reason=' + encodeURIComponent(selectedReason) + 
+                             '&owners=' + selectedOwners + 
+                             '&visas=' + selectedVisas + 
+                             '&office=' + encodeURIComponent(selectedOffice) + 
+                             '&time=' + encodeURIComponent(selectedTime) + 
+                             '&jurisdiction=' + encodeURIComponent(selectedJurisdiction) + 
+                             '&living=' + selectedLiving;
+    }
+  </script>
+
+</body>
+
+</html>

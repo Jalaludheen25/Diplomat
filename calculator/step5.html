@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>Cost Calculator Step 5 - Company name</title>
+  <link rel="stylesheet" href="calculator-styles.css">
+</head>
+
+<body>
+
+  <main class="calculator-wrapper">
+    <div class="calculator-container">
+      <div class="logo-section">
+        <h1 class="logo-title">Company name</h1>
+        <p class="logo-subtitle">An Ascendum Company</p>
+      </div>
+
+      <h2 class="page-title">Calculate Your UAE Business Setup Cost</h2>
+
+      <div class="calculator-card">
+        <div class="form-header">
+          <h3 class="form-title">What type of office space do you need?</h3>
+          <p class="form-description">Depending on the nature of your business, will you need a flexi-desk, a co-working space or an entire office space? This is an important factor in calculating your total setup cost.</p>
+        </div>
+
+        <div class="office-selection">
+          <button type="button" class="office-btn" data-value="virtual-office">Virtual Office</button>
+          <button type="button" class="office-btn" data-value="physical-office">Physical Office</button>
+          <button type="button" class="office-btn" data-value="shop-front">Shop Front</button>
+          <button type="button" class="office-btn" data-value="business-centre">Business Centre</button>
+          <button type="button" class="office-btn" data-value="warehouse">Warehouse</button>
+        </div>
+
+        <div class="button-group">
+          <button type="button" class="btn btn-secondary" onclick="goBack()">Previous</button>
+          <button type="button" class="btn btn-primary" id="nextBtn" disabled onclick="proceedNext()">Next</button>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="calculator-footer">
+    <div class="footer-content">
+      <p class="footer-text">Al Saqba Office B, 404, Souk Al Bahar, Burj Khalifa District, Dubai, UAE</p>
+    </div>
+  </footer>
+
+  <script>
+    const urlParams = new URLSearchParams(window.location.search);
+    const selectedActivity = urlParams.get('activity');
+    const selectedReason = urlParams.get('reason');
+    const selectedOwners = urlParams.get('owners');
+    const selectedVisas = urlParams.get('visas');
+    
+    let selectedOffice = null;
+
+    document.querySelectorAll('.office-btn').forEach(btn => {
+      btn.addEventListener('click', function() {
+        document.querySelectorAll('.office-btn').forEach(b => b.classList.remove('selected'));
+        this.classList.add('selected');
+        selectedOffice = this.getAttribute('data-value');
+        document.getElementById('nextBtn').disabled = false;
+      });
+    });
+
+    function goBack() {
+      window.location.href = 'step4.html?activity=' + encodeURIComponent(selectedActivity) + 
+                             '&reason=' + encodeURIComponent(selectedReason) + 
+                             '&owners=' + selectedOwners;
+    }
+
+    function proceedNext() {
+      if (selectedOffice) {
+        window.location.href = 'step6.html?activity=' + encodeURIComponent(selectedActivity) + 
+                               '&reason=' + encodeURIComponent(selectedReason) + 
+                               '&owners=' + selectedOwners + 
+                               '&visas=' + selectedVisas + 
+                               '&office=' + encodeURIComponent(selectedOffice);
+      }
+    }
+  </script>
+
+</body>
+
+</html>
